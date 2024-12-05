@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        String inputFilePath = "./day1_input";
+        String inputFilePath = "./inputs/day1_input";
 
         List<String> leftList = new ArrayList<>();
         List<String> rightList = new ArrayList<>();
