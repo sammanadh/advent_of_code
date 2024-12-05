@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         String inputFilePath = "./inputs/day2_input";
 
-        try(Stream<String> lines = Files.lines(Path.of(inputFilePath))) {
+        try (Stream<String> lines = Files.lines(Path.of(inputFilePath))) {
             long safeReportsCount = lines
                     .filter(line -> !line.isEmpty())
                     .map(line -> line.split(" "))
@@ -29,30 +29,29 @@ public class Main {
                         int j = 1;
                         boolean oneBadAlreadyEncountered = false;
 
-                        while(j < levels.length) {
+                        while (j < levels.length) {
                             int leftLevel = Integer.parseInt(levels[i]);
                             int rightLevel = Integer.parseInt(levels[j]);
                             int diff = leftLevel - rightLevel;
 
                             boolean isBad = false;
 
-                            if(Math.abs(diff) < 1 || Math.abs(diff) > 3) isBad = true;
+                            if (Math.abs(diff) < 1 || Math.abs(diff) > 3) isBad = true;
 
                             Order currentOrder = diff < 0 ? Order.INCREASING : Order.DECREASING;
-                            if(order == null) order = currentOrder;
-                            else if(order != currentOrder) {
+                            if (order == null) order = currentOrder;
+                            else if (order != currentOrder) {
                                 order = currentOrder;
                                 isBad = true;
                             }
 
-                            if(isBad) {
-                                if(oneBadAlreadyEncountered) {
+                            if (isBad) {
+                                if (oneBadAlreadyEncountered) {
                                     System.out.println(levels[0]);
                                     return false;
-                                }
-                                else {
+                                } else {
                                     oneBadAlreadyEncountered = true;
-                                    if(i==0) {
+                                    if (i == 0) {
                                         i++;
                                         j++;
                                     } else {
@@ -69,4 +68,7 @@ public class Main {
                     .count();
 
             System.out.println(safeReportsCount);
-        } catch (IOException e) {}
+        } catch (IOException e) {
+        }
+    }
+}
